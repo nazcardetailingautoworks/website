@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nazcar Autoworks</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <meta name="description" content="DetailX menyediakan layanan car detailing premium. Proteksi, coating, steam cleaning, dan perawatan mobil profesional.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Nazcar Autoworks - Premium Car Detailing">
+  <meta property="og:description" content="Layanan premium detailing mobil. Proteksi, coating, cleaning, dan perawatan profesional.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero-car.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo"><span class="logo-icon">NZ</span> NAZCAR AUTOWORKS</div>
+    <nav>
+      <ul>
+      <li><a href="#home" class="smooth-scroll">HOME</a></li>
+      <li><a href="#services" class="smooth-scroll">SERVICES</a></li>
+      <li><a href="#about" class="smooth-scroll">ABOUT</a></li>
+      <li><a href="#portfolio" class="smooth-scroll">PORTFOLIO</a></li>
+      <li><a href="#contact" class="smooth-scroll">CONTACT</a></li>
+      </ul>
+    </nav>
+    <script>
+      document.querySelectorAll('a.smooth-scroll').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.startsWith('#')) {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+        }
+      });
+      });
+    </script>
+    <a href="#quote" class="btn btn-primary">GET A QUOTE</a>
+    <button class="navbar-toggle" aria-label="Toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p class="subtitle">FULL SERVICE AND EXCELLENT QUALITY SINCE 2019</p>
+      <h1>NAZCAR <span>AUTOWORKS</span></h1>
+      <p class="desc">Professional car detailing services that bring out the best in your vehicle.<br>Premium care for premium cars.</p>
+      <div class="hero-buttons">
+        <a href="#quote" class="btn btn-primary">GET A QUOTE</a>
+        <a href="#services" class="btn btn-secondary">VIEW SERVICES</a>
+      </div>
+    </div>
+    <div class="scroll-down">
+      SCROLL DOWN
+      <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="section-header">
+      <h2>WHAT WE DO</h2>
+      <h3>Premium <span>Services</span></h3>
+      <p class="section-desc">We offer comprehensive car detailing services using the latest technology and premium products to ensure your vehicle looks its absolute best.</p>
+    </div>
+    
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Protection Film</h3>
+        <p>Provides superior protection to keep your car looking new. Prevents scratches and damage from road debris using cutting-edge technology.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> UV Protection</li>
+          <li><i class="fas fa-check"></i> Scratch Resistant</li>
+          <li><i class="fas fa-check"></i> Self-Healing Technology</li>
+        </ul>
+        <a href="#" class="learn-more">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3>Steam Cleaning</h3>
+        <p>Deep steam cleaning that sanitizes and refreshes your car's interior and exterior without harsh chemicals.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Deep Sanitization</li>
+          <li><i class="fas fa-check"></i> Eco-Friendly</li>
+          <li><i class="fas fa-check"></i> Interior & Exterior</li>
+        </ul>
+        <a href="#" class="learn-more">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-cog"></i>
+        </div>
+        <h3>Rims & Tires</h3>
+        <p>Specialized cleaning and protection for wheels and tires that enhances appearance and extends their life.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Tire Dressing</li>
+          <li><i class="fas fa-check"></i> Rim Polishing</li>
+          <li><i class="fas fa-check"></i> Brake Dust Removal</li>
+        </ul>
+        <a href="#" class="learn-more">Learn More</a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tint"></i>
+        </div>
+        <h3>Ceramic Coating</h3>
+        <p>Long-lasting ceramic coating that provides superior gloss and protection against environmental contaminants.</p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Hydrophobic Surface</li>
+          <li><i class="fas fa-check"></i> Enhanced Gloss</li>
+          <li><i class="fas fa-check"></i> Environmental Protection</li>
+        </ul>
+        <a href="#" class="learn-more">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Contact Section -->
+  <section id="about" class="about-contact-section">
+  <div class="about-contact-container">
+    <div class="about-content" style="flex: 1; padding-right: 2rem;">
+      <h1 class="about-title">ABOUT US</h1>
+      <h2 class="about-heading">
+        Full-Service <span class="gradient">Detailing</span> for Cars
+      </h2>
+      <h1 class="about-welcome">Welcome to DetailX!</h1>
+      <p>With over 10 years of experience in the automotive detailing industry, we pride ourselves on using premium products and techniques that exceed our customers' expectations. Our team of certified professionals uses only the finest products and latest techniques to restore and protect your vehicle.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">Cars Detailed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5★</span>
+          <span class="stat-label">Customer Rating</span>
+        </div>
+      </div>
+      <a href="tel:0800-555-44-33" class="phone-button">
+        <i class="fas fa-phone"></i> 0 800 555 44 33
+      </a>
+    </div>
+    <div class="contact-info" style="flex: 1; padding-left: 2rem;">
+      <div class="contact-box">
+        <div class="contact-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="contact-box-content">
+          <h3>Call Us</h3>
+          <p>0 800 555 44 33</p>
+          <small>Available 24/7</small>
+        </div>
+      </div>
+      <!-- Working Hours -->
+      <div class="contact-box">
+        <div class="contact-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="contact-box-content">
+          <h3>Working Hours</h3>
+          <p>Mon-Fri: 8:00 AM – 8:00 PM<br>Sat-Sun: 9:00 AM – 6:00 PM</p>
+          <small>Flexible schedule</small>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="contact-box">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="contact-box-content">
+          <h3>Location</h3>
+          <p>123 Premium Auto Center<br>Downtown District</p>
+          <small>Find us on Google Maps</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main"></div>
+      <div class="footer-content" style="float: left; width: 50%;">
+        <div class="footer-logo">
+          <span class="logo-icon">D</span> DETAILX
+        </div>
+        <p class="footer-desc">Providing car detailing with exceptional quality and attention to detail since the day one.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links" style="float: right; width: 50%;">
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Protection Film</a></li>
+            <li><a href="#">Steam Cleaning</a></li>
+            <li><a href="#">Rims & Tires</a></li>
+            <li><a href="#">Ceramic Coating</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>123 Premium Auto Center</p>
+          <p>Downtown District</p>
+          <p>0 800 555 44 33</p>
+          <p>info@detailx.com</p>
+        </div>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2023 DetailX. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/navbar.js"></script>
+</body>
+</html>
