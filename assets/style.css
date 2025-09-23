@@ -171,64 +171,64 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Hero Section */
+/* === HERO SECTION (RESPONSIVE) === */
+
+/* --- Base Styles (Desktop First) --- */
 .hero {
   background: url('hero-car.jpg') no-repeat center/cover;
-  height: 90vh; 
-  display: flex; 
+  height: 95vh; /* Sedikit lebih tinggi untuk memberikan ruang */
+  display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-  margin-top: 0;
-  padding-top: 0;
+  color: #fff;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35); /* hitam samar, bisa ubah opacity sesuai kebutuhan */
+  background: rgba(0, 0, 0, 0.45); /* Gelapkan sedikit untuk kontras lebih baik */
   z-index: 1;
-  pointer-events: none;
 }
 
-/* Pastikan konten hero di atas overlay */
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 0 0px;
-}
-
-.hero h1 { 
-  font-size: 5rem; 
-  color: #fff;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.hero h1 span { 
-  color: #f5b700;
-  display: block;
-  margin-top: -50px; /* Kurangi jarak antara h1 dan span */
+  max-width: 900px; /* Lebarkan sedikit untuk desktop */
+  padding: 0 20px; /* Tambahkan padding dasar */
 }
 
 .subtitle {
   font-size: 1rem;
   letter-spacing: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   color: #f5b700;
 }
 
-.hero .desc { 
-  margin: 20px 0 30px;
+.hero h1 {
+  font-size: 4.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px; /* Sedikit diperbesar dari 20px menjadi 30px */
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1; /* Membantu mengontrol kerapatan baris */
+}
+
+.hero h1 span {
+  color: #f5b700;
+  display: block;
+  font-weight: 800;
+}
+
+.hero .desc {
+  /* Margin atas diatur oleh h1, kita hanya atur margin bawah */
+  margin: 0 auto 30px auto; 
   font-size: 1.1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 500px;
+  line-height: 1.6;
 }
 
 .hero-buttons {
@@ -246,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   color: rgba(255, 255, 255, 0.7);
-  z-index: 1;
+  z-index: 2;
 }
 
 .arrow-down {
@@ -263,6 +263,74 @@ h1, h2, h3, h4, h5, h6 {
   }
   60% {
     transform: translateY(-5px);
+  }
+}
+
+/* --- Media Query untuk Laptop & Desktop Kecil --- */
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 4.2rem; /* Font size diperkecil */
+  }
+  .hero h1 span {
+    margin-top: -30px;
+  }
+}
+
+/* --- Media Query untuk Tablet (Landscape) --- */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 3.8rem;
+  }
+  .hero h1 span {
+    margin-top: -25px;
+  }
+  .hero .desc {
+    max-width: 600px;
+    font-size: 1rem;
+  }
+}
+
+/* --- Media Query untuk Tablet (Portrait) --- */
+@media (max-width: 768px) {
+  .hero {
+    height: 90vh; /* Tinggi dikurangi sedikit */
+  }
+  .hero h1 {
+    font-size: 3rem; /* Ukuran makin kecil agar muat */
+    line-height: 1.2; /* Tambah jarak baris jika h1 jadi 2 baris */
+  }
+  .hero h1 span {
+    margin-top: -20px;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Media Query untuk HP (Mobile) --- */
+@media (max-width: 480px) {
+  .hero {
+    height: 85vh; /* Disesuaikan untuk layar vertikal */
+  }
+  .hero h1 {
+    font-size: 2.5rem; /* Ukuran ideal untuk HP */
+  }
+  .hero h1 span {
+    margin-top: -15px; /* Jarak negatif dikurangi drastis */
+  }
+  .hero .desc {
+    font-size: 0.95rem; /* Deskripsi juga dikecilkan */
+  }
+  .hero-buttons {
+    flex-direction: column; /* Tombol diubah jadi vertikal */
+    align-items: center;
+  }
+  .hero-buttons .btn {
+    width: 80%; /* Lebar tombol disamakan */
+    text-align: center;
+  }
+  .scroll-down {
+    display: none; /* Sembunyikan 'scroll down' di HP agar tidak ramai */
   }
 }
 
@@ -1176,5 +1244,129 @@ h1, h2, h3, h4, h5, h6 {
   .contact-box {
     min-width: 0;
     width: 100%;
+  }
+}
+
+/* --- Style untuk Fitur yang Ditonjolkan (Highlight) --- */
+.highlight-feature {
+  /* Memberi sedikit penekanan pada seluruh baris jika diperlukan */
+  font-weight: 600; 
+}
+
+/* Membuat Teks Strong di dalamnya menjadi gradasi */
+.highlight-feature strong {
+  /* 1. Atur background menjadi gradasi warna */
+  background: linear-gradient(90deg, #f5b700, #ffde7a);
+  
+  /* 2. Potong background sesuai bentuk teks */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. Buat warna teks asli menjadi transparan */
+  color: transparent;
+}
+
+/* Membuat Ikon Centang di dalamnya menjadi serasi */
+.highlight-feature i.fa-check {
+  color: #f5b700; /* Warna kuning utama dari gradasi */
+}
+
+/* === TESTIMONIALS SECTION === */
+.testimonials {
+  background-color: #111; /* Warna background gelap */
+  padding: 80px 0;
+  text-align: center;
+  color: #fff;
+}
+
+/* --- Slider --- */
+.testimonial-slider-container {
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  overflow: hidden; /* Ini yang membuat efek 'jendela' */
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.testimonial-track {
+  display: flex;
+  /* (Lebar kartu * jumlah kartu total) = 25% * 8 kartu = 200% */
+  width: 200%; 
+  animation: scroll 30s linear infinite;
+}
+
+/* Jeda animasi saat kursor mouse di atas slider */
+.testimonial-slider-container:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+/* --- Animasi Scroll --- */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Setengah dari total lebar track */
+    transform: translateX(-50%); 
+  }
+}
+
+/* --- Kartu Testimoni --- */
+.testimonial-card {
+  flex-basis: 25%; /* 4 kartu terlihat di desktop */
+  flex-shrink: 0;
+  padding: 30px;
+  margin: 0 15px;
+  background-color: #222;
+  border-radius: 10px;
+  border-top: 4px solid #f5b700;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.testimonial-stars {
+  color: #f5b700;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  font-style: normal;
+  color: #fff;
+}
+
+/* --- Media Query untuk Tablet --- */
+@media (max-width: 992px) {
+  .testimonial-track {
+    /* (Lebar kartu * jumlah kartu total) = 50% * 8 kartu = 400% */
+    width: 400%;
+    animation-duration: 40s;
+  }
+  .testimonial-card {
+    flex-basis: 25%; /* 2 kartu terlihat di tablet */
+  }
+}
+
+/* --- Media Query untuk HP --- */
+@media (max-width: 768px) {
+  .testimonial-track {
+    /* (Lebar kartu * jumlah kartu total) = 100% * 8 kartu = 800% */
+    width: 800%;
+    animation-duration: 60s;
+  }
+  .testimonial-card {
+    flex-basis: 12.5%; /* 1 kartu terlihat di HP */
+  }
+  .testimonials {
+    padding: 60px 0;
   }
 }
