@@ -3,13 +3,14 @@
    ========================================================================== */
 
 :root {
-  --color-primary: #f5b700;
-  --color-primary-dark: #FFB300;
-  --color-primary-light: #FFD700;
-  --color-gradient: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary-dark) 100%);
-  --color-gradient-hover: linear-gradient(90deg, #FFFACD 0%, var(--color-primary-light) 100%);
-  
-  --color-bg-dark: #0b0b0b;
+  /* Emas – lebih dekat ke logo PNG */
+  --color-primary: #D4AF37;         /* gold */
+  --color-primary-dark: #B8860B;    /* dark gold / bronze */
+  --color-primary-light: #F3D37A;   /* light gold highlight */
+  --color-gradient: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  --color-gradient-hover: linear-gradient(90deg, #F8E7B3 0%, var(--color-primary) 100%);
+
+  --color-bg-dark: #0b0b0b;  /* tetap hitam dominan */
   --color-bg-light: #111;
   --color-text-primary: #ffffff;
   --color-text-secondary: #aaaaaa;
@@ -143,6 +144,16 @@ h1, h2, h3, h4, h5, h6 {
   gap: 30px; /* Jarak antara menu dan tombol */
 }
 
+/* Gambar logo */
+.logo-img {
+  height: 50px;           /* desktop */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));
+}
+
+/* Spasi kanan agar tidak dempet hamburger */
+.navbar .logo { display: flex; align-items: center; gap: 10px; }
 .logo-text {
   font-size: 20px;
   font-weight: 600;
@@ -198,48 +209,52 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-.navbar-toggle {
-  display: none; /* Disembunyikan di desktop */
+/* === Hamburger Button === */
+.hamburger {
+  display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 3000;
+  z-index: 2000; /* pastikan di atas hero */
 }
 
-.navbar-toggle .bar {
-  height: 4px;
+.hamburger span {
   width: 100%;
-  background: linear-gradient(90deg, #FFD700 0%, #FFB300 100%);
-  margin: 5px 0;
+  height: 3px;
+  background: var(--color-primary);  /* sebelumnya #FFD700 */
+  margin: 4px 0;
   border-radius: 2px;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
-/* Tombol Close di Menu Mobile */
-.nav-item-close {
+.navbar-nav .nav-logo {
+  display: none;
+  margin-bottom: 40px;
   list-style: none;
-  position: absolute;
-  top: 20px;
-  right: 20px;
 }
 
-.nav-close-btn {
-  background: none;
-  border: none;
-  color: var(--color-primary);
-  font-size: 3rem;
-  font-weight: 300;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
+.navbar-nav .nav-overlay-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.6));
 }
 
-.nav-close-btn:hover {
-  color: var(--color-text-primary);
+/* Animasi ke bentuk "X" */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(9px, -9px);
 }
 
 /* ==========================================================================
@@ -774,6 +789,31 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary);
 }
 
+/* ===== Logo Footer ===== */
+.footer .logo-img {
+  display: block;
+  max-width: 420px;   /* lebih besar untuk desktop */
+  width: 100%;
+  height: auto;
+  margin: 0 auto 18px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.35));
+  object-fit: contain;
+}
+
+/* Footer layout desktop */
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Kolom kiri dan kanan */
+.footer-content,
+.footer-links {
+  flex: 1 1 0;
+}
+
 /* ==========================================================================
    9. MEDIA QUERIES (RESPONSIVE STYLES)
    ========================================================================== */
@@ -790,37 +830,92 @@ h1, h2, h3, h4, h5, h6 {
   .navbar {
     padding: 15px 30px;
   }
-  .navbar-nav {
-    display: none; /* Sembunyikan menu link horizontal */
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.98);
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  .navbar-nav .nav-logo {
+    display: block;
+    animation: fadeSlideDown 0.5s ease forwards;
   }
-  .navbar-right {
-  display: none;
+  @keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to   { opacity: 1; transform: translateY(0); }
   }
-  .navbar-nav.active {
-    display: flex; /* Tampilkan menu saat aktif */
-  }
+.navbar-nav.active li { opacity: 0; animation: fadeSlideUp 0.4s forwards; }
+.navbar-nav.active li.nav-logo { animation-delay: 0s; }
+.navbar-nav.active li:nth-child(2){ animation-delay: .2s; }
+.navbar-nav.active li:nth-child(3){ animation-delay: .3s; }
+.navbar-nav.active li:nth-child(4){ animation-delay: .4s; }
+.navbar-nav.active li:nth-child(5){ animation-delay: .5s; }
+.navbar-nav.active li:nth-child(6){ animation-delay: .6s; }
   .nav-link {
-    font-size: 1.8rem; /* Perbesar font menu mobile agar mudah di-tap */
+    font-size: 22px;
+    color: #FFD700;
+    text-decoration: none;
+    transition: color 0.3s ease;
   }
   .navbar .btn {
     display: none; /* Sembunyikan tombol "Hubungi Kami" di nav */
   }
-  .navbar-toggle {
-    display: flex; /* Tampilkan ikon hamburger */
+  .hamburger {
+    display: flex;
   }
+  .navbar-nav {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.navbar-nav.active {
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+    .navbar-nav .nav-link:hover {
+    color: #fff;
+  }
+    /* Animasi stagger untuk tiap link */
+  .navbar-nav.active li {
+    opacity: 0;
+    animation: fadeSlideUp 0.4s forwards;
+  }
+  .navbar-nav.active li:nth-child(1) { animation-delay: 0.1s; }
+  .navbar-nav.active li:nth-child(2) { animation-delay: 0.2s; }
+  .navbar-nav.active li:nth-child(3) { animation-delay: 0.3s; }
+  .navbar-nav.active li:nth-child(4) { animation-delay: 0.4s; }
+  .navbar-nav.active li:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeSlideUp {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .logo-img { height: 35px; }
+
   .logo-text {
-    display: none; /* Sembunyikan teks logo, sisakan ikon */
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap; /* tetap 1 baris */
+  overflow: hidden;
+  text-overflow: ellipsis; /* kalau terlalu panjang jadi ... */
   }
+
   .logo-icon {
     margin-right: 0;
   }
@@ -873,6 +968,25 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     gap: 15px;
   }
+
+  .stats {    
+  gap: 30px;
+}
+.about-contact-container {
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 30px; /* jarak antar blok */
+}
+
+.about-content,
+.contact-info {
+  padding: 0 !important;
+  width: 100%;
+  max-width: 90%; /* biar ada breathing room */
+  margin: 0 auto;
+}
+
 }
 
 
@@ -920,7 +1034,23 @@ h1, h2, h3, h4, h5, h6 {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-100vw * 4)); }
   }
+  /* ===== Footer brand logo ===== */
+.footer .logo-img {
+  /* khusus logo PNG di footer */
+  display: block;
+  width: min(320px, 90%); /* agak full-width, tapi tetap proporsional */
+  height: auto;
+  margin: 0 auto 14px;   /* center + beri jarak bawah */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.35));
 }
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}
+
 
 
 /* -- Untuk HP Kecil -- */
@@ -936,6 +1066,9 @@ h1, h2, h3, h4, h5, h6 {
   .btn {
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+  .logo-icon {
+    margin-left: -2px;
   }
 
   /* -- Hero Section -- */
@@ -1002,10 +1135,6 @@ h1, h2, h3, h4, h5, h6 {
     float: none !important;   /* override inline float */
     margin: 0 auto !important; /* override inline margin */
     gap: 10px;
-}
-
-.footer-logo {
-  margin-bottom: 10px;
 }
 
 .footer-desc {
