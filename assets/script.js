@@ -4,7 +4,7 @@
     // --- 1. SETUP SEMUA ELEMENT ---
     // Semua elemen yang kita butuhkan kita panggil satu kali di sini.
     const navbar = document.querySelector('.navbar');
-    const navbarToggle = document.querySelector('.navbar-toggle');
+    const hamburger = document.getElementById('hamburger');
     const navbarNav = document.querySelector('.navbar-nav');
     const navLinks = document.querySelectorAll('.nav-link');
     const smoothScrollLinks = document.querySelectorAll('a.smooth-scroll');
@@ -29,23 +29,21 @@
     }
 
     // --- 3. FUNGSI NAVIGASI MOBILE ---
-    // Logika untuk buka/tutup menu hamburger
-    if (navbarToggle && navbarNav) {
-  navbarToggle.addEventListener('click', (event) => {
-    // Menghentikan event agar tidak konflik dengan fungsi lain
-    event.stopPropagation(); 
+   // Toggle menu
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
     navbarNav.classList.toggle('active');
   });
 
+  // Tutup menu saat klik link
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
-      // Hanya hapus class jika menu sedang terbuka
-      if (navbarNav.classList.contains('active')) {
-        navbarNav.classList.remove('active');
-      }
-        });
-      });
-    }
+      hamburger.classList.remove('active');
+      navbarNav.classList.remove('active');
+    });
+  });
+
+    
 
     // --- 4. FUNGSI SAAT HALAMAN DI-SCROLL ---
     // Hanya ada SATU event listener untuk scroll untuk semua fungsi terkait scroll
