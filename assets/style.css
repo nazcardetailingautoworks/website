@@ -927,7 +927,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
 
   /* -- Umum -- */
-  .services, .about-contact-section, .testimonials {
+  .services, .testimonials {
     padding: 60px 15px;
   }
   .section-header h3 {
@@ -967,10 +967,126 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column; /* Susun stat vertikal */
     gap: 30px;
   }
+  .about-contact-container {
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 30px; /* jarak antar blok */
+}
+
+.about-content,
+.contact-info {
+  padding: 0 !important;
+  width: 100%;
+  max-width: 90%; /* biar ada breathing room */
+  margin: 0 auto;
+}
 
   /* -- Footer -- */
-  .footer-links {
-    flex-direction: flex;
-    text-align: center;
-  }
+
+.footer {
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px; /* jarak antar blok */
+}
+
+.footer-content, .footer-links {
+    width: 100% !important;   /* override inline width:50% */
+    float: none !important;   /* override inline float */
+    margin: 0 auto !important; /* override inline margin */
+    gap: 10px;
+}
+
+.footer-logo {
+  margin-bottom: 10px;
+}
+
+.footer-desc {
+  max-width: 90%;
+  margin: 0 auto 20px auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.footer-section {
+  width: 100%;
+  padding: 15px 0;
+  border-top: 1px solid #222; /* garis pemisah */
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footer-section p, 
+.footer-section li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.footer-bottom {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #222;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+}
+
+/* ==========================================================================
+   10. BACK TO TOP BUTTON
+   ========================================================================== */
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-gradient);
+  color: var(--color-text-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 999;
+  cursor: pointer;
+  
+  /* Sembunyikan tombol secara default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.back-to-top-btn:hover {
+  background: var(--color-gradient-hover);
+  transform: translateY(-5px); /* Efek sedikit terangkat saat hover */
+}
+
+/* Class 'show' yang akan ditambahkan oleh JavaScript */
+.back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
